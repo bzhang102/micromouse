@@ -1,0 +1,4 @@
+../Core/Src/motors.c:10:7:limitPWM	3
+../Core/Src/motors.c:34:6:setMotorLPWM	2
+../Core/Src/motors.c:56:6:setMotorRPWM	2
+../Core/Src/motors.c:69:6:resetMotors	1
