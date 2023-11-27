@@ -22,6 +22,8 @@
 /* USER CODE BEGIN Includes */
 #include "main.h"
 #include "motors.h"
+#include "encoders.h"
+#include "controller.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -92,7 +94,6 @@ int main(void)
   /* USER CODE BEGIN SysInit */
 
   /* USER CODE END SysInit */
-
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART2_UART_Init();
@@ -108,9 +109,6 @@ int main(void)
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_2);
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_3);
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_4);
-
-  setMotorLPWM(0.8);
-  setMotorRPWM(0.8);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -409,7 +407,7 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_PIN)
 {
-	if (GPIO_PIN == B1_Pin);
+	if (GPIO_PIN == B1_Pin)
 	{
 		if(HAL_GPIO_ReadPin(GPIOA, LED_Pin) == GPIO_PIN_SET) {
 			HAL_GPIO_WritePin(GPIOA, LED_Pin, GPIO_PIN_RESET);
